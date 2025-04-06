@@ -67,6 +67,8 @@ body {
 }
 
 .chat {
+    container-type: inline-size;
+    container-name: chat;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -78,6 +80,8 @@ body {
     background-color: #f2f2f7;
     border: 1px solid #dddddd;
     border-radius: 12px;
+    resize: horizontal;
+    overflow: hidden;
 }
 
 .logo {
@@ -85,4 +89,32 @@ body {
     width: 50px;
     height: 50px;
     margin: 0 auto;
+}
+
+.message {
+    max-inline-size: 60%;
+    padding: 12px 16px;
+    margin: 0;
+    text-wrap: balance;
+    border-radius: 20px;
+}
+
+.incoming {
+    color: #000000;
+    background-color: #e5e5ea;
+    align-self: flex-start;
+}
+
+.outgoing {
+    color: #ffffff;
+    background-color: #007aff;
+    align-self: flex-end;
+}
+
+@container chat (max-width: 500px) {
+    .message {
+        max-width: 100%;
+        text-align: center;
+        align-self: center;
+    }
 }
